@@ -1,5 +1,6 @@
-#Buka Gerai
-##Installation
+# Buka Gerai
+Ini adalah projek website sederhana yang dibuat berdasarkan tugas mata pelajaran Pemrograman Web di SMK saya. Web ini dibuat menggunakan framework PHP yaitu Laravel.
+## Installation
 Pastikan teman-teman sudah menginstall Composer sebelum ke step berikutnya.
 1. Membuat App Key kalian sendiri.
 ```bash
