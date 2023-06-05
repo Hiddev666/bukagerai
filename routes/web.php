@@ -32,8 +32,12 @@ Route::get('/back', function() {
 Route::post('/search', [PagesController::class, 'searchResult'])->name('search');
 
 // Admin Create
-Route::get('/admin/create', [AdminController::class, 'productCreate']);
+Route::get('/admin/products', [AdminController::class, 'productsIndex']);
+Route::get('/admin/products/create', [AdminController::class, 'productsCreate'])->name('admin.products.create');
+Route::post('/admin/products/store', [AdminController::class, 'productsStore'])->name('admin.products.store');
+Route::get('/admin/products/updateform/{id}', [AdminController::class, 'productsUpdateForm'])->name('admin.products.updateform');
+Route::post( '/admin/products/update', [AdminController::class, 'productsUpdate'])->name('admin.products.update');
+Route::post('/admin/products/delete/{id}', [AdminController::class, 'productsDelete'])->name('admin.products.delete');
 
 // Admin Store
-Route::post('/admin/store', [AdminController::class, 'productStore'])->name('admin.store');
 

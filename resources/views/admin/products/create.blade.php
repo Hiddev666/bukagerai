@@ -31,7 +31,7 @@
             @yield('sidebar')
         </div>
         <div class="right ms-5" style="width: 70%">
-            <form action="{{ route('admin.store') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('admin.products.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="container mt-5">
                     <h2>Insert a New Product</h2>

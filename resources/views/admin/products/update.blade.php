@@ -31,14 +31,14 @@
             @yield('sidebar')
         </div>
         <div class="right ms-5" style="width: 70%">
-            <form action="{{ route('admin.update') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('admin.products.update') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" value="{{ $products->id }}" name="id">
                 <div class="container mt-5">
                     <h2>Update a Product</h2>
-                    @if (Session::get('success'))
+                    @if (Session::get('successupdate'))
                     <div class="alert alert-success" role="alert">
-                        <p>{{ Session::get('success') }}</p>
+                        <p>{{ Session::get('successupdate') }}</p>
                       </div>
                     @endif
                     <div class="row mb-3 mt-3">
@@ -75,7 +75,7 @@
                           </select>
                     </div>
                     </div>
-                    <button type="submit" class="btn btn-primary w-25">Submit</button>
+                    <button type="submit" class="btn btn-primary w-25" value="Update">Submit</button>   
                 </div>
             </form>
 

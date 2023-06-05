@@ -20,7 +20,7 @@
         </button>
     </form>
     <div class="d-flex me-3">
-      <a href="/admin/create" class="link-underline link-underline-opacity-0 link-dark"><p class="my-auto mx-auto">Admin</p></a>
+      <a href="/admin/products" class="link-underline link-underline-opacity-0 link-dark"><p class="my-auto mx-auto">Admin</p></a>
     </div>
   </nav>
   @endsection

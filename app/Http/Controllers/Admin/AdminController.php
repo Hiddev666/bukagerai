@@ -11,7 +11,15 @@ use Illuminate\Support\Facades\Session;
 
 class AdminController extends Controller
 {
-    public function productCreate()
+    
+    public function productsIndex() {
+        $products = Product::all();
+
+        return view('admin.products.index', [
+            'products' => $products
+        ]);
+    }
+    public function productsCreate()
     {
         // Brands
         $brands = Brand::all();
@@ -19,13 +27,12 @@ class AdminController extends Controller
         // Categories
         $categories = Category::all();
 
-        return view('admin.create', [
+        return view('admin.products.create', [
             'brands' => $brands,
             'categories' => $categories
         ]);
     }
-
-    public function productStore(Request $request) {
+    public function productsStore(Request $request) {
         $requestImage = $request->file('image');
         $imageName = strtolower(str_replace(' ', '-', $request->name));
     
@@ -45,6 +52,43 @@ class AdminController extends Controller
             return redirect()->back();
         } else {
             Session::flash('failed', 'A New Product Was Not Added');
+        }    
+    }
+    public function productsUpdateForm($id) {
+        $products = Product::find($id);
+        $brands = Brand::all();
+        $categories = Category::all();
+
+        return view('admin.products.update', [
+            'products' => $products,
+            'brands' => $brands,
+            'categories' => $categories
+        ]);
+    }
+
+    public function productsUpdate(Request $request) {
+        $product = Product::where('id', $request->id)->update([
+            'name' => $request->name,
+            'brand_id' => $request->brand_id,
+            'price' => $request->price,
+            'description' => $request->description,
+            'category_id' => $request->category_id
+        ]);
+
+        if($product) {
+            Session::flash('successupdate', 'A New Product Was Updated');
+            return redirect()->back();
+        } else {
+            Session::flash('failedupdate', 'A New Product Was Not Updated');
+        }    
+    }
+    public function productsDelete($id) {
+        $product = Product::where('id', $id)->delete();
+        if($product) {
+            Session::flash('successdelete', 'A New Product Was Deleted');
+            return redirect()->back();
+        } else {
+            Session::flash('successdelete', 'A New Product Was Not Deleted');
         }    
     }
 }
