@@ -11,11 +11,12 @@ php artisan key:generate
 composer install
 ```
 3. Buat Database baru dengan nama ”bukagerai”
-4. Jalankan artisan migrate, untuk migrasi database.
+4. Ubah nama file .env.example menjadi .env
+5. Jalankan artisan migrate, untuk migrasi database.
 ```bash
 php artisan migrate
 ```
-5. Kemudian masuk ke direktori projeknya, dan jalankan artisan serve
+6. Kemudian masuk ke direktori projeknya, dan jalankan artisan serve
 ```bash
 php artisan serve
 ```
