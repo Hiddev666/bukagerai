@@ -6,7 +6,7 @@ Pastikan teman-teman sudah menginstall Composer sebelum ke step berikutnya.
 ```bash
 php artisan key:generate
 ```
-2. Install semua package/library yang diperlukan menggunakan perintah artisan install.
+2. Install semua package/library yang diperlukan menggunakan perintah composer.
 ```bash
 composer install
 ```
